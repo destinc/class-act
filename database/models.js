@@ -16,4 +16,5 @@ const db = new Sequelize(process.env.DATABASE_URL, {
    })
 
 
-   module.exports = { db, Courses, Reviews}
+   module.exports = { db, 
+    Courses, Reviews}
