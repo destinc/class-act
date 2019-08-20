@@ -2,6 +2,7 @@ import React from 'react'
 import Axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
 import api from '../../services/ApiServices'
+import Layout from './listlayout'
 
 
 class CourseList extends React.Component {
@@ -12,59 +13,16 @@ class CourseList extends React.Component {
         }
     }
 
-
-
     componentDidMount = async (res, req) => {
-       await this.fetchCourses()
-
+        const resp = await Axios.get('http://localhost:3001/courses', api)
+        console.log(resp)
+        this.setState({ courses: resp.data })
     }
-
-    // const resp = await Axios.get('http://localhost:3001/courses', api)
-    // console.log(resp)
-    // this.setState({courses: resp.data})
-
-
-
-
-    fetchCourses = async () => {
-        try {
-            const resp = await Axios.get('http://localhost:3001/courses', api)
-            console.log(resp.data)
-            
-            return this.state.courses.map(course =>{
-                return <p>{course}</p>
-            })
-        }
-        catch (error) {
-            throw error
-        }
-    }
-
-
-
-
-    // listAllCourses = async () => {
-    //     try{
-    //         if(this.state.courses.length){
-    //             return this.state.courses.map((courses => {
-    //                 return (
-    //                     <p> {courses}</p>
-    //                 )
-    //             }))
-    //         }    
-    //     }
-    //     catch(error){
-    //         throw error
-    //     }
-    // }
-
-
-
-
 
     render() {
+        const list = this.state.courses.map(course => <Link to='/courses'><Layout key={course.id} name={course.name} /></Link>)
         return (
-            <div></div>
+            <div>{list}</div>
         )
     }
 }

@@ -1,6 +1,8 @@
 const Sequelize = require('sequelize')
 
-const db = new Sequelize(process.env.DATABASE_URL, {
+
+const db = new Sequelize({
+    database: 'courses_db',
     dialect: 'postgres'
    })
 
@@ -14,6 +16,9 @@ const db = new Sequelize(process.env.DATABASE_URL, {
        courseId: Sequelize.INTEGER,
        review: Sequelize.TEXT 
    })
+
+   Courses.hasMany(Reviews)
+   Reviews.belongsTo(Courses)
 
 
    module.exports = { db, 
