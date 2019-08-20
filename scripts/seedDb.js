@@ -43,26 +43,31 @@ const main = async () => {
 
     const reviewOne = await Reviews.create({
         courseId: 1,
+        name: 'Student1',
         review: 'No way jose'
     })
 
     const reviewTwo = await Reviews.create({
         courseId: 2,
+        name: 'Student2',
         review: 'SEI is hard'
     })
 
     const reviewThree = await Reviews.create({
         courseId: 3,
+        name: 'Student3',
         review: 'HTML is easy'
     })
 
     const reviewFour = await Reviews.create({
         courseId: 4,
+        name: 'Student4',
         review: 'Servers suck'
     })
 
     const reviewFive = await Reviews.create({
         courseId: 5,
+        name: 'Student5',
         review: 'Middle ware what?'
     })
 
@@ -70,9 +75,12 @@ const main = async () => {
         console.error(error)
         throw error
     }
+    finally {
+        process.exit()
+    }
 
 }
 
 main()
 
-//mattpheus
+

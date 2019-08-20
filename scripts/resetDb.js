@@ -1,7 +1,16 @@
 const { db } = require('../database/models')
 
 const main = async () => {
-    await db.sync ({force: true })
+    try{
+        await db.sync ({force: true })
+    }
+    catch(error){
+        console.error(error)
+        throw error
+    }
+    finally{
+        process.exit()
+    }
 }
 
 main()

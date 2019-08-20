@@ -10,19 +10,28 @@ class CourseList extends React.Component {
         super(props)
         this.state = {
             courses: []
+            
         }
     }
 
     componentDidMount = async (res, req) => {
-        const resp = await Axios.get('http://localhost:3001/courses', api)
+        const resp = await Axios.get('http://localhost:3001/courses/', api)
         console.log(resp)
-        this.setState({ courses: resp.data })
+        this.setState({ 
+            courses: resp.data,
+        })
     }
 
+    
+
     render() {
-        const list = this.state.courses.map(course => <Link to='/courses'><Layout key={course.id} name={course.name} /></Link>)
+        
+        const list = this.state.courses.map(course => <Link key={course.id} to={`/courses/${course.id}`}><Layout key={course.id} name={course.name} /></Link>)
         return (
-            <div>{list}</div>
+            <div>
+            <h1>{list}</h1>
+            <button>Create Course</button>
+            </div>
         )
     }
 }
