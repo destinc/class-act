@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize')
+const bcrypt = require('bcrypt')
 
 const db = new Sequelize({
     database: 'courses_db',
@@ -34,6 +35,15 @@ const User = db.define('user',{
     }
 
 })
+
+User.beforeCreate(async (user, options) => {
+    const hashedPassword = await bcrypt.hash(
+      user.password,
+      12
+    )
+  
+    user.password = hashedPassword
+  })
 
 Courses.hasMany(Reviews)
 Reviews.belongsTo(Courses)

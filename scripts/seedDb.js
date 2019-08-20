@@ -1,4 +1,4 @@
-const { Courses, Reviews } = require('../database/models')
+const { Courses, Reviews, User } = require('../database/models')
 
 const main = async () => {
     try {
@@ -69,6 +69,13 @@ const main = async () => {
         courseId: 5,
         name: 'Student5',
         review: 'Middle ware what?'
+    })
+
+    const user1 = await User.create({
+        name: 'Bob Barker',
+        email: 'bob@gmail.com',
+        password: 'password123'
+
     })
 
     }catch(error) {
