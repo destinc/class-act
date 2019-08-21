@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './components/Header';
+import Header from './components/Header/';
 import Footer from './components/Footer';
 import CourseList from './components/CourseList';
 import SingleCourse from './components/ShowCourse';
@@ -75,12 +75,13 @@ class App extends React.Component {
     return (
       <div className="App">
         <nav>
-          <div><Link to="/">Home</Link></div>
+          <Header />
+          
 
-          {
+          {/* {
             isSignedIn &&
-            <div><Link to="/courses">Dashboard</Link></div>
-          }
+            <div><Link to="/courses">Courses</Link></div>
+          } */}
 
           {
             !isSignedIn ? (
@@ -91,6 +92,7 @@ class App extends React.Component {
           }
         </nav>
         <main>
+          
         <Route exact path="/" component={Home} />
           <ProtectedRoute
             exact path="/courses"

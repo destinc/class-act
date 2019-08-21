@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -62,6 +62,7 @@ class LoginForm extends React.Component {
 
     return (
       <div>
+        <Link to="/">Home</Link>
         {errorMessage}
         <form className="form" onSubmit={this.handleSubmitForm}>
           <div>

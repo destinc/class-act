@@ -3,7 +3,10 @@ import Axios from 'axios'
 import api from '../../services/apiServices'
 import CourseList from '../CourseList';
 
-
+// {
+//     isSignedIn &&
+//     <div><Link to="/courses">Courses</Link></div>
+//   }
 
 class SingleCourse extends React.Component {
     constructor(props){
