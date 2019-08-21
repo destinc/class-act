@@ -1,6 +1,6 @@
 import React from 'react'
 import Axios from 'axios'
-import api from '../../services/ApiServices'
+import api from '../../services/apiServices'
 import CourseList from '../CourseList';
 
 

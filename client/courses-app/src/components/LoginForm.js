@@ -57,7 +57,7 @@ class LoginForm extends React.Component {
     }
 
     if (isSignedIn) {
-      return <Redirect to="/dashboard" />
+      return <Redirect to="/courses" />
     }
 
     return (

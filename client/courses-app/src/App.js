@@ -6,7 +6,7 @@ import SingleCourse from './components/ShowCourse';
 import { Link, Redirect, Switch, Route } from 'react-router-dom';
 
 import Home from './components/Home'
-import Dashboard from './components/Dashboard'
+import Dashboard from './components/CourseList/Dashboard'
 import Login from './components/Login'
 import ProtectedRoute from './components/ProtectedRoute'
 
@@ -79,7 +79,7 @@ class App extends React.Component {
 
           {
             isSignedIn &&
-            <div><Link to="/dashboard">Dashboard</Link></div>
+            <div><Link to="/courses">Dashboard</Link></div>
           }
 
           {
@@ -93,7 +93,7 @@ class App extends React.Component {
         <main>
         <Route exact path="/" component={Home} />
           <ProtectedRoute
-            path="/dashboard"
+            exact path="/courses"
             user={user}
             component={Dashboard}
           />
@@ -104,9 +104,7 @@ class App extends React.Component {
             }
           />
         <Switch>
-          <Route exact path='/courses' component={CourseList}/>
           <Route exact path='/courses/:id' component={SingleCourse}/>
-          
         </Switch>
         </main>
       </div>
