@@ -83,6 +83,21 @@ app.get('/courses/:id', async (req, res) =>{
     }
 })
 
+//Show all reviews 
+app.get('/reviews', async (req, res) =>{
+    try{
+        const allReview = await Reviews.findAll(
+            // include: {model: Reviews}
+        )
+        res.json(allReview)
+    }
+    catch(error){
+        console.error(error)
+        throw error
+    }
+})
+//Show all reviews 
+
 
 app.get('/courses/:id/reviews', async (req, res) =>{
     try{

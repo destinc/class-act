@@ -19,14 +19,14 @@ class CourseForm extends React.Component {
         this.setState({
             [name]: value
         })
-        console.log(event.target.value)
+        // console.log(event.target.value)
     }
 
     handleSubmit = async (event) => {
         // event.preventDefault()
         const { name, instructor, description } = this.state
         let newCourse = { name, instructor, description }
-        console.log(newCourse)
+        // console.log(newCourse)
         return await Axios.post('http://localhost:3001/courses/', newCourse)
     }
 
