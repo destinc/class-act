@@ -4,22 +4,25 @@ import { Link, Redirect } from 'react-router-dom'
 import api from '../../services/apiServices'
 import Layout from './listlayout'
 import './dashboard.css'
+import CourseForm from './CourseForm';
+
 
 class Dashboard extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      courses: []
+      courses: [],
     }
   }
 
   componentDidMount = async (res, req) => {
     const resp = await Axios.get('http://localhost:3001/courses/', api)
-    console.log(resp)
     this.setState({
       courses: resp.data,
     })
   }
+
+
   render() {
     const { user } = this.props
     const list = this.state.courses.map(course => <Link key={course.id} to={`/courses/${course.id}`}><Layout key={course.id} name={course.name} /></Link>)
@@ -31,7 +34,7 @@ class Dashboard extends React.Component {
 
         <div>
           <p>Not seeing your course? Add one below.</p>
-          <button>Add a Course</button>
+          <CourseForm />
         </div>
 
       </div>

@@ -9,6 +9,8 @@ import Home from './components/Home'
 import Dashboard from './components/CourseList/Dashboard'
 import Login from './components/Login'
 import ProtectedRoute from './components/ProtectedRoute'
+import ShowCourse from './components/ShowCourse/'
+
 
 import { login, getProfile } from './services/apiServices'
 
@@ -109,6 +111,7 @@ class App extends React.Component {
           <Route exact path='/courses/:id' component={SingleCourse}/>
         </Switch>
         </main>
+
       </div>
     );
   }

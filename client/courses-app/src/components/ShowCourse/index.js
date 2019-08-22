@@ -1,12 +1,7 @@
 import React from 'react'
 import Axios from 'axios'
 import api from '../../services/apiServices'
-import CourseList from '../CourseList';
 
-// {
-//     isSignedIn &&
-//     <div><Link to="/courses">Courses</Link></div>
-//   }
 
 class SingleCourse extends React.Component {
     constructor(props){
@@ -20,7 +15,7 @@ class SingleCourse extends React.Component {
     }
 
     componentDidMount = async (res, req)=> {
-        const resp = await Axios.get(`http://localhost:3001/courses/${this.props.match.params.id}`, api)
+        const resp = await Axios.get(`http://localhost:3001/courses/${this.props.match.params.id}/reviews`, api)
             this.setState({
                 data: resp.data
             })
@@ -28,16 +23,16 @@ class SingleCourse extends React.Component {
         console.log(resp)
         
     }
-
+    //We need to fix the routes in order for reviews to work
 
 
     render(){
         return(
             <div>
-
-            <div>{this.state.data.name}</div>
-            
-            
+            <h1>{this.state.data.name}</h1>
+            <h2>Taught By: {this.state.data.instructor}</h2>
+            <h3>Description</h3> 
+            <p>{this.state.data.description}</p>
             </div>
         )
     }

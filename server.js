@@ -9,7 +9,7 @@ require('dotenv').config()
 const authRouter = require('./routers/authRouter')
 const appRouter = require('./routers/appRouter')
 const { authorized } = require('./auth/auth')
-const { Courses, Reviews } = require('./database/models')
+const { Courses, Reviews, User } = require('./database/models')
 
 const PORT = 3001
 
@@ -18,6 +18,7 @@ const app = express()
 app.use(logger('dev'))
 app.use(cors())
 app.use(parser.json())
+app.use(express.urlencoded({ extended: false }))
 
 app.use('/auth', authRouter)
 app.use('/app', authorized, appRouter)
@@ -38,6 +39,31 @@ app.get('/courses', async (req, res) =>{
     try{
         const course = await Courses.findAll()
         res.send(course)
+    }
+    catch(error){
+        console.error(error)
+        throw error
+    }
+})
+
+app.post('/courses', async (req, res) =>{
+    try{
+        const addCourseToList = await Courses.create(req.body)
+        // await addCourseToList.setUser(findUser)
+        res.json(addCourseToList)
+    }
+    catch(error){
+        console.error(error)
+        throw error
+    }
+})
+
+app.post('/courses/:id', async (req, res) =>{
+    try{
+        const findUser = await User.findByPk(req.params.id)
+        const addCourse = await Courses.create(req.body)
+        await addCourse.setUser(findUser)
+        res.json(addCourse)
     }
     catch(error){
         console.error(error)
@@ -77,6 +103,7 @@ app.post('/courses/:id/reviews', async (req, res) =>{
         const courseReview = await Reviews.create(req.body)
         const course = await Courses.findByPk(req.params.id)//this was what we were missing
         await courseReview.setCourse(course)//this was what we were missing
+
     
         res.send(courseReview)
     }
@@ -88,16 +115,34 @@ app.post('/courses/:id/reviews', async (req, res) =>{
 
 app.put('/courses/:id/reviews/update', async (req, res) =>{
     try{
-        //add code for update here on this line - we need to find courses first then update the review.
-        const addReview = await Reviews.findByPk(req.params.id)
+        const findReview = await Reviews.findByPk(req.params.id)
+        const reviewUpdate = await findReview.update(req.body)
 
-        await addReview.update(req.body)
-        res.send(addReview)
+        // await addReview.update(req.body)
+        res.send(reviewUpdate)
 
     }
     catch(error){
         console.error(error)
         throw error
+    }
+
+})
+
+app.delete('/courses/:id/reviews/:id', async (req, res) =>{
+    try{
+        const deleteReview = await Reviews.findByPk(req.params.id)
+        await deleteReview.destroy()
+        
+
+        // await addReview.update(req.body)
+        res.send('This review was deleted')
+
+    }
+    catch(error){
+        console.error(error)
+        throw error
+        
     }
 
 })

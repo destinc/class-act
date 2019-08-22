@@ -7,11 +7,9 @@ const db = new Sequelize({
 })
 
 const Courses = db.define("courses", {
-    
     name: Sequelize.STRING,
     instructor: Sequelize.STRING,
-
-
+    description: Sequelize.TEXT
 })
 
 const Reviews = db.define("reviews", {
@@ -50,5 +48,8 @@ Reviews.belongsTo(Courses)
 
 User.hasMany(Courses)
 Courses.belongsTo(User)
+
+User.hasMany(Reviews)
+Reviews.belongsTo(User)
 
 module.exports = { db, Courses, Reviews, User }
