@@ -6,41 +6,63 @@ import Layout from '../CourseList/listlayout'
 
 
 class SingleCourse extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
-            data: ''
-
-
+            info: [],
+            review: [],
+            update: false,
+            delete: false,
         }
-
     }
 
-    componentDidMount = async (res, req)=> {
+    componentDidMount = async (res, req) => {
         const resp = await Axios.get(`http://localhost:3001/courses/${this.props.match.params.id}/reviews`, api)
-            this.setState({
-                data: resp.data
-            })
-        
+        this.setState({
+            info: resp.data,
+            review: resp.data.reviews
+        })
+
         // console.log(resp + 'hi')
-        console.log(this.state.data.reviews)
-        
+        // console.log(resp.data.reviews)
+
     }
-    //We need to fix the routes in order for reviews to work
+
+    // handleUpdate = (event) => {
+    //     const currentReview = event.target
+    //     const { name, value } = currentReview
+    //     const newState = {}
+    //     newState[name] = value
+    //     this.setState(newState)
+
+    // }
+
+    // ourLoop = async (res, req) => {
+
+    //     const ourMap = this.state.info.reviews.map(wow => {
+    //         return <p>{wow.review}</p>
+    //     })
+    // }
 
 
-    render(){
-        // const { data } = this.
-        // const reviewMap = this.state.data.reviews.map(review => <Layout key={review.id}/>)
-        
-        return(
+
+
+    render() {
+
+        const ourMap = this.state.review.map(reviews => {
+            return <h3>{reviews.review}</h3>
+        })
+
+        return (
             <div>
-            <h1>{this.state.data.name}</h1>
-            <h2>Taught By: {this.state.data.instructor}</h2>
-            <h3>Description</h3> 
-            <p>{this.state.data.description}</p>
-            {/* <p>{reviewMap}</p> */}
-            
+                <h1>{this.state.info.name}</h1>
+                <h2>Taught By: {this.state.info.instructor}</h2>
+                <h2>Description</h2>
+                <p>{this.state.info.description}</p>
+                {/* <form onChange={this.handleUpdate} onSubmit={}>
+
+                </form> */}
+                    {ourMap}
             </div>
         )
     }

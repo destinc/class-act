@@ -129,6 +129,36 @@ const main = async () => {
         review: 'I think I can change the world knowing how to market digitally, especially swaying votes when it comes to election season! MUST DO THIS COURSE!'
     })
 
+    const reviewSix = await Reviews.create({
+        courseId: 1,
+        name: 'Javascript Review 2',
+        review: 'This course is cool'
+    })
+
+    const reviewSeven = await Reviews.create({
+        courseId: 2,
+        name: 'SEI Review 2',
+        review: 'This course is challenging'
+    })
+
+    const reviewEight = await Reviews.create({
+        courseId: 3,
+        name: 'Data Science Review 2',
+        review: 'This course is analytical'
+    })
+
+    const reviewNine = await Reviews.create({
+        courseId: 4,
+        name: 'UX Review 2',
+        review: 'This course is creative'
+    })
+
+    const reviewTen = await Reviews.create({
+        courseId: 5,
+        name: 'Digital Marketing Review 2',
+        review: 'This course is business oriented'
+    })
+
     const bob = await User.create({
         name: 'Bob Barker',
         email: 'bob@gmail.com',
