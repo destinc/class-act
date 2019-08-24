@@ -97,10 +97,6 @@ app.get('/reviews/:id', async (req, res) => {
 })
 //Show all reviews 
 
-
-
-
-
 app.put('/reviews/:id', async (req, res) => { //The front end already knows the previous slug you want, thus you do not need to repeat/nest the courses/:id.
     try {
         const id = req.params.id
@@ -119,11 +115,6 @@ app.put('/reviews/:id', async (req, res) => { //The front end already knows the 
         console.error(error)
     }
 })
-
-
-
-
-
 
 app.get('/courses/:id/reviews', async (req, res) => {
     try {
@@ -154,41 +145,60 @@ app.post('/courses/:id/reviews', async (req, res) => {
     }
 })
 
-app.put('/courses/:id/reviews', async (req, res) => {
-    console.log('hi')
-    try {
-        //const findCourses = await Courses.findByPk(req.params.id)
-        const findReview = await Reviews.findByPk(req.params.id)
-        const reviewUpdate = await findReview.update(req.body)
+// app.put('/courses/:id/reviews', async (req, res) => {
+//     console.log('hi')
+//     try {
+//         //const findCourses = await Courses.findByPk(req.params.id)
+//         const findReview = await Reviews.findByPk(req.params.id)
+//         const reviewUpdate = await findReview.update(req.body)
 
-        // await addReview.update(req.body)
-        res.send(reviewUpdate)
+//         // await addReview.update(req.body)
+//         res.send(reviewUpdate)
+
+//     }
+//     catch (error) {
+//         console.error(error)
+//         throw error
+//     }
+
+// })
+
+app.delete('/reviews/:id', async (req, res) => {
+    try {
+        const id = req.params.id
+        let deleteReview = await Reviews.destroy({
+            where:
+            {id: id}
+        })
+        res.json({message: "This Review Was Deleted"})
 
     }
     catch (error) {
         console.error(error)
         throw error
-    }
-
-})
-
-app.delete('/courses/:id/reviews/:id', async (req, res) => {
-    try {
-        const deleteReview = await Reviews.findByPk(req.params.id)
-        await deleteReview.destroy()
-
-
-        // await addReview.update(req.body)
-        res.send('This review was deleted')
-
-    }
-    catch (error) {
-        console.error(error)
-        throw error
 
     }
 
 })
+
+// app.put('/reviews/:id', async (req, res) => { //The front end already knows the previous slug you want, thus you do not need to repeat/nest the courses/:id.
+//     try {
+//         const id = req.params.id
+//         const findReview = await Reviews.update(
+//             {
+//                 review: req.body.review //review is part of your model (database model) req.body.review is the actual field you type in. Think postman request then body selection.
+//             },
+//             {
+//                 where: {
+//                     id: id //this id: id is the review id within the database primary keys. And you need this in order to change the specific review id in the front end.
+//                 }
+//             })
+//         res.send(findReview) //send the data you get back.
+//     } catch (error) {
+//         console.log('edit review backend')
+//         console.error(error)
+//     }
+// })
 
 
 app.use((err, req, res, next) => {

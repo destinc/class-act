@@ -14,19 +14,7 @@ const main = async () => {
     const js = await Courses.create({
         name: 'Intro to Javascript',
         instructor: 'Joseph Tool',
-        description: `What you'll learn in this javascript class:
-        
-        Skills & Tools:
-
-        Learn to code in JavaScript, the native language of the web used by developers the world over.
-        
-        Production Standard:
-
-        Build a single-page web app that persists user data and connects to services like Twitter and Facebook via APIs.
-        
-        The Big Picture:
-
-        Learn the fundamentals of object-oriented programming while receiving support from industry experts and a community of peers.`,
+        description: `Learn to code in JavaScript, the native language of the web used by developers the world over. Build a single-page web app that persists user data and connects to services like Twitter and Facebook via APIs. Learn the fundamentals of object-oriented programming while receiving support from industry experts and a community of peers.`,
         reviewId: 1
 
     })
@@ -34,68 +22,28 @@ const main = async () => {
     const sei = await Courses.create({
         name: 'Software Engineering Immersive',
         instructor: 'Bruno Boss',
-        description: `What you'll learn in this all software training:
-        
-        A Well-Rounded Technical Foundation:
-
-        Dive into the software development environment and the basics of computing, networks, and data structures. Discover how to build applications that meet user needs, model data, develop wireframes, and work collaboratively through version control.
-        
-        Fluency in Multiple Frameworks and Stacks:
-
-        Learn to build applications from the ground up using key languages and frameworks. Write high-quality JavaScript and leverage JS libraries like React to build a dynamic front-end. Incorporate functionality from third-party APIs and add complexity and nuance with Ruby on Rails, Python, Django, and more.
-        
-        Beyond “Full-Stack Development”:
-
-        Discover how to effectively communicate and collaborate with development teams to carry out projects from concept to completion. Work as a team in Git and GitHub while executing software engineering projects in an Agile development workflow.
-        `,
+        description: `Dive into the software development environment and the basics of computing, networks, and data structures. You will discover how to build applications that meet user needs, model data, develop wireframes, and work collaboratively through version control. You will also learn to build applications from the ground up using key languages and frameworks. Write high-quality JavaScript and leverage JS libraries like React to build a dynamic front-end. Incorporate functionality from third-party APIs and add complexity and nuance with Ruby on Rails, Python, Django, and more. Discover how to effectively communicate and collaborate with development teams to carry out projects from concept to completion. Finally, you will work as a team in Git and GitHub while executing software engineering projects in an Agile development workflow.`,
         reviewId: 2
     })
 
     const dataScience = await Courses.create({
         name: 'Data Science',
         instructor: 'Dan Ack',
-        description: `What you'll learn in this data science course:
-        
-        Skills & Tools:
-
-        Use Python to mine datasets and predict patterns.
-
-        Production Standard:
-
-        Build statistical models — regression and classification — that generate usable information from raw data.
-
-        The Big Picture:
-
-        Master the basics of machine learning and harness the power of data to forecast what’s next.`,
+        description: `Students will use Python to mine datasets and predict patterns. They will also build statistical models — regression and classification — that generate usable information from raw data. Finally, students will master the basics of machine learning and harness the power of data to forecast what's next.`,
         reviewId: 3
     })
 
     const ux = await Courses.create({
         name: 'User Experience',
         instructor: 'Jessy James',
-        description: `What you'll learn in this ux class:
-        The User Experience Designer (UXD) plays a critical role in today’s Experience Economy. With digital, human-centered products and services at the forefront of this economy, this workshop aims at understanding humans on a fundamental level as it applies to design, how to perform user research and testing as part of an iterative design cycle along with various design processes and who is involved. 
-        
-        Additionally, students will learn core UX concepts and terminology, practice conducting UX research, sketch interfaces, and build a digital prototype.`,
+        description: `The User Experience Designer (UXD) plays a critical role in today's Experience Economy. With digital, human-centered products and services at the forefront of this economy, this workshop aims at understanding humans on a fundamental level as it applies to design, how to perform user research and testing as part of an iterative design cycle along with various design processes and who is involved. Additionally, students will learn core UX concepts and terminology, practice conducting UX research, sketch interfaces, and build a digital prototype.`,
         reviewId: 4
     })
 
     const digitalMarketing = await Courses.create({
         name: 'Digital Marketing',
         instructor: 'Mason Way',
-        description: `What you'll learn in this digital marketing course:
-        
-        Skills & Tools: 
-        
-        Gain proficiency in social advertising and use Facebook, Google AdWords, and Google Analytics to find meaning in user behavior.
-        
-        Production Standard: 
-        
-        Develop and plan a campaign driven by data and paid-search strategies--and measured by key performance indicators.
-        
-        The Big Picture: 
-        
-        Become a driver of your company's bottom line by using cutting-edge techniques and platforms to market products and acquire users.`,
+        description: `Gain proficiency in social advertising and use Facebook, Google AdWords, and Google Analytics to find meaning in user behavior. Develop and plan a campaign driven by data and paid-search strategies--and measured by key performance indicators. Become a driver of your company's bottom line by using cutting-edge techniques and platforms to market products and acquire users`,
         reviewId: 5
     })
 
