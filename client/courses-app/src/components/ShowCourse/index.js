@@ -51,11 +51,6 @@ class SingleCourse extends React.Component {
 
     render() {
 
-        // const ourMap = this.state.review.map(reviews => {
-        //     return <h3>{reviews.review}
-        //     </h3>
-        // })
-
         return (
             <div>
                 <h1>{this.state.info.name}</h1>

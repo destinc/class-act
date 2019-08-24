@@ -37,19 +37,4 @@ export const getProfile = async () => {
   }
 }
 
-// export const editReview = async (id) => {
-//   try {
-//     const response = await api.put(`/reviews/${id}`, )
-
-    
-//   } catch (error) {
-    
-//   }
-
-// }
-
-
-
-
-
 export default api

@@ -66,7 +66,9 @@ class CourseForm extends React.Component {
                         onChange={this.handleChange}
                         ></input>
                     </div>
+
                     <button className="submit-button" type='submit' >Add a Course</button>
+
                 </form>
             </div>
         )
