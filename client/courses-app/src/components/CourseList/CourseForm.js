@@ -1,5 +1,6 @@
 import React from 'react'
 import Axios from 'axios'
+import './CourseForm.css'
 // import { Redirect } from 'react-router-dom'
 // import api from '../../services/apiServices'
 
@@ -34,7 +35,7 @@ class CourseForm extends React.Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form className="class-form" onSubmit={this.handleSubmit}>
                     <div>
                         <label>Course</label>
                         <input
@@ -45,7 +46,7 @@ class CourseForm extends React.Component {
                             onChange={this.handleChange}>
                         </input>
                     </div>
-                    <div>
+                    {/* <div> */}
                         <label>Instructor</label>
                         <input
                             type='text'
@@ -54,7 +55,7 @@ class CourseForm extends React.Component {
                             value={this.instructor}
                             onChange={this.handleChange}>
                         </input>
-                    </div>
+                    {/* </div> */}
                     <div>
                         <label>Description</label>
                         <input 
@@ -65,7 +66,9 @@ class CourseForm extends React.Component {
                         onChange={this.handleChange}
                         ></input>
                     </div>
-                    <button type='submit' >Add a Course</button>
+
+                    <button className="submit-button" type='submit' >Add a Course</button>
+
                 </form>
             </div>
         )

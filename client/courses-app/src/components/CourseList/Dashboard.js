@@ -28,12 +28,14 @@ class Dashboard extends React.Component {
     const list = this.state.courses.map(course => <Link key={course.id} to={`/courses/${course.id}`}><Layout key={course.id} name={course.name} /></Link>)
     return (
       <div>
-        <div><Link to="/">Home</Link></div>
-        <h1>{user.name && `Hi ${user.name}! Check out the available courses to review!`}</h1>
-        <h2>{list}</h2>
+        <div className='home-link-container'><Link className="home-link" to="/">Home</Link></div>
+        <h1 className='greeting'>{user.name && `Hi ${user.name}! Check out the available courses to review!`}</h1>
+        <h2 className="list">{list}</h2>
 
         <div>
-          <p>Not seeing your course? Add one below.</p>
+          <div className="add-course-container">
+          <p className="add-course">Not seeing your course? Add one below.</p>
+          </div>
           <CourseForm />
         </div>
 

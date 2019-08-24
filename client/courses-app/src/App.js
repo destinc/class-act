@@ -76,8 +76,9 @@ class App extends React.Component {
     const { isSignedIn, user } = this.state
     return (
       <div className="App">
+        <Header />
         <nav>
-          <Header />
+          
           
 
           {/* {
@@ -87,15 +88,16 @@ class App extends React.Component {
 
           {
             !isSignedIn ? (
-              <div><Link to="/login">Login</Link></div>
+              <div className = 'login'><Link className="login-link" to="/login">Login</Link></div>
             ) : (
               <button onClick={this.signOutUser}>Sign Out</button>
             )
           }
         </nav>
         <main>
-          
+        <div className = "home">
         <Route exact path="/" component={Home} />
+        </div>
           <ProtectedRoute
             exact path="/courses"
             user={user}
@@ -111,8 +113,9 @@ class App extends React.Component {
           <Route exact path='/courses/:id' 
           render={(props) => <SingleCourse {...props}/>}/>
         </Switch>
+        <Footer/>
         </main>
-
+        
       </div>
     );
   }
