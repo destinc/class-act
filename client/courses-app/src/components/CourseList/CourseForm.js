@@ -67,6 +67,14 @@ class CourseForm extends React.Component {
                     </div>
                     <button type='submit' >Add a Course</button>
                 </form>
+                <br></br>
+                <form>
+                    
+                    <input type='text'></input>
+                    <br/>
+                    <button>Edit Course</button>
+`
+                </form>
             </div>
         )
     }

@@ -1,7 +1,7 @@
 import React from 'react'
 import Axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
-import api from '../../services/apiServices'
+import api from '../../services/ApiServices'
 import Layout from './listlayout'
 import './dashboard.css'
 import CourseForm from './CourseForm';

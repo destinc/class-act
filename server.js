@@ -1,4 +1,4 @@
-const express = require ('express')
+const express = require('express')
 const parser = require('body-parser')
 const cors = require('cors')
 const passport = require('passport')
@@ -25,73 +25,72 @@ app.use('/app', authorized, appRouter)
 app.use(passport.initialize())
 
 
-app.get('/', async (req, res) =>{
-    try{
-        
+app.get('/', async (req, res) => {
+    try {
+
     }
-    catch(error){
+    catch (error) {
         console.error(error)
         throw error
     }
 })
 
-app.get('/courses', async (req, res) =>{
-    try{
+app.get('/courses', async (req, res) => {
+    try {
         const course = await Courses.findAll()
         res.send(course)
     }
-    catch(error){
+    catch (error) {
         console.error(error)
         throw error
     }
 })
 
-app.post('/courses', async (req, res) =>{
-    try{
+app.post('/courses', async (req, res) => {
+    try {
         const addCourseToList = await Courses.create(req.body)
         // await addCourseToList.setUser(findUser)
         res.json(addCourseToList)
     }
-    catch(error){
+    catch (error) {
         console.error(error)
         throw error
     }
 })
 
-app.post('/courses/:id', async (req, res) =>{
-    try{
+app.post('/courses/:id', async (req, res) => {
+    try {
         const findUser = await User.findByPk(req.params.id)
         const addCourse = await Courses.create(req.body)
         await addCourse.setUser(findUser)
         res.json(addCourse)
     }
-    catch(error){
+    catch (error) {
         console.error(error)
         throw error
     }
 })
 
-app.get('/courses/:id', async (req, res) =>{
-    try{
+app.get('/courses/:id', async (req, res) => {
+    try {
         const courseId = req.params.id
         const singleCourse = await Courses.findByPk(courseId)
         res.send(singleCourse)
     }
-    catch(error){
+    catch (error) {
         console.error(error)
         throw error
     }
 })
 
 //Show all reviews 
-app.get('/reviews', async (req, res) =>{
-    try{
-        const allReview = await Reviews.findAll(
-            // include: {model: Reviews}
-        )
+app.get('/reviews/:id', async (req, res) => {
+    try {
+        const id = req.params.id
+        const allReview = await Reviews.findByPk(id)
         res.json(allReview)
     }
-    catch(error){
+    catch (error) {
         console.error(error)
         throw error
     }
@@ -99,37 +98,66 @@ app.get('/reviews', async (req, res) =>{
 //Show all reviews 
 
 
-app.get('/courses/:id/reviews', async (req, res) =>{
-    try{
+
+
+
+app.put('/reviews/:id', async (req, res) => { //The front end already knows the previous slug you want, thus you do not need to repeat/nest the courses/:id.
+    try {
+        const id = req.params.id
+        const findReview = await Reviews.update(
+            {
+                review: req.body.review //review is part of your model (database model) req.body.review is the actual field you type in. Think postman request then body selection.
+            },
+            {
+                where: {
+                    id: id //this id: id is the review id within the database primary keys. And you need this in order to change the specific review id in the front end.
+                }
+            })
+        res.send(findReview) //send the data you get back.
+    } catch (error) {
+        console.log('edit review backend')
+        console.error(error)
+    }
+})
+
+
+
+
+
+
+app.get('/courses/:id/reviews', async (req, res) => {
+    try {
         const allCourses = await Courses.findByPk(req.params.id, {
-            include: {model: Reviews}
+            include: { model: Reviews }
         })
         res.json(allCourses)
     }
-    catch(error){
+    catch (error) {
         console.error(error)
         throw error
     }
 })
 
 
-app.post('/courses/:id/reviews', async (req, res) =>{
-    try{
+app.post('/courses/:id/reviews', async (req, res) => {
+    try {
         const courseReview = await Reviews.create(req.body)
         const course = await Courses.findByPk(req.params.id)//this was what we were missing
         await courseReview.setCourse(course)//this was what we were missing
 
-    
+
         res.send(courseReview)
     }
-    catch(error){
+    catch (error) {
         console.error(error)
         throw error
     }
 })
 
-app.put('/courses/:id/reviews/update', async (req, res) =>{
-    try{
+app.put('/courses/:id/reviews', async (req, res) => {
+    console.log('hi')
+    try {
+        //const findCourses = await Courses.findByPk(req.params.id)
         const findReview = await Reviews.findByPk(req.params.id)
         const reviewUpdate = await findReview.update(req.body)
 
@@ -137,27 +165,27 @@ app.put('/courses/:id/reviews/update', async (req, res) =>{
         res.send(reviewUpdate)
 
     }
-    catch(error){
+    catch (error) {
         console.error(error)
         throw error
     }
 
 })
 
-app.delete('/courses/:id/reviews/:id', async (req, res) =>{
-    try{
+app.delete('/courses/:id/reviews/:id', async (req, res) => {
+    try {
         const deleteReview = await Reviews.findByPk(req.params.id)
         await deleteReview.destroy()
-        
+
 
         // await addReview.update(req.body)
         res.send('This review was deleted')
 
     }
-    catch(error){
+    catch (error) {
         console.error(error)
         throw error
-        
+
     }
 
 })
@@ -165,10 +193,10 @@ app.delete('/courses/:id/reviews/:id', async (req, res) =>{
 
 app.use((err, req, res, next) => {
     res.status(500).json({ message: err.message })
-  })
+})
 
 
-app.listen(PORT, ()=>console.log('this is working'))
+app.listen(PORT, () => console.log('this is working'))
 
 
 

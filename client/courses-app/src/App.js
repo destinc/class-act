@@ -12,7 +12,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import ShowCourse from './components/ShowCourse/'
 
 
-import { login, getProfile } from './services/apiServices'
+import { login, getProfile } from './services/ApiServices'
 
 import authService from './services/authService';
 
@@ -108,7 +108,8 @@ class App extends React.Component {
             }
           />
         <Switch>
-          <Route exact path='/courses/:id' component={SingleCourse}/>
+          <Route exact path='/courses/:id' 
+          render={(props) => <SingleCourse {...props}/>}/>
         </Switch>
         </main>
 
