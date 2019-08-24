@@ -2,6 +2,7 @@
     margin-top: 75px;
     height: 76px;
     z-index: 1;
+    border: 2px solid silver;
 }
 
 .authors{
