@@ -1,7 +1,9 @@
 .App {
   text-align: center;
 }
-
+body{
+  background-color:rgba(86, 6, 139, .8);
+}
 
 .App-header {
   background-color: #282c34;
@@ -36,8 +38,7 @@ button {
   border: none;
   box-shadow: 2px 2px 10px;
   transition: all 0.4s;
+  margin: 10px;
 }
 
-nav {
-  background-color:rgba(86, 6, 139, .75);
-}
+

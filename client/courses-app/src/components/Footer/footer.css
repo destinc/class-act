@@ -1,11 +1,12 @@
 .app-footer {
-    margin-top: 75px;
-    height: 76px;
+    height: 100%;
     z-index: 1;
-    border: 2px solid silver;
+    border-top: 3px solid rgb(106, 101, 101);
+   
 }
 
 .authors{
     font-size: 18px;
+    margin-top: 50px;
 }
 

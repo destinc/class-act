@@ -3,6 +3,9 @@ import Axios from 'axios'
 import api from '../../services/ApiServices'
 import Layout from '../CourseList/listlayout'
 import ReviewForm from '../ReviewForm'
+import Images from '../Images/class-computer.jpg'
+
+import './showcourse.css'
 
 
 
@@ -52,12 +55,12 @@ class SingleCourse extends React.Component {
     render() {
 
         return (
-            <div>
+            <div className='course-info'>
+                {/* <img className="styledimg" src={Images} alt='Students With Laptops'></img> */}
                 <h1>{this.state.info.name}</h1>
-                <h2>Taught By: {this.state.info.instructor}</h2>
-                <h2>Description</h2>
-                <p>{this.state.info.description}</p>
-
+                <h2 className='taught-by'>Taught By: {this.state.info.instructor}</h2>
+                <h2 className='description-header'>Description</h2>
+                <p className='description'>{this.state.info.description}</p>
                 {/* {ourMap} */}
                 {this.state.review.map(reviews => { /*we are already mapping through the reviews in this line*/
                     return (

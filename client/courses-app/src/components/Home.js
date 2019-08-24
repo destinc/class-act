@@ -10,10 +10,13 @@ function Home() {
       
     
 
-      <h2>Hate or Love Your Course?</h2>
+      <h2 class="slogan">Hate or Love Your Course?</h2>
       <img className="teaching" src={Images} width='500px' height='300px' alt='Students In Class With Teacher'></img>
       <div className="paragraph-container">
-      <p>Want to rate a course you just took? Use our world renowned app, <span>Class Act</span>. Share your reviews to the world!</p>
+      <p>Want to rate a course you just took? Use our world renowned app, <span>Class Act</span>.</p>
+      </div>
+      <div className="second-paragraph-container">
+      <p>Share your reviews to the world!</p>
       </div>
 
 
