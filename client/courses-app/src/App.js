@@ -76,8 +76,9 @@ class App extends React.Component {
     const { isSignedIn, user } = this.state
     return (
       <div className="App">
+        <Header />
         <nav>
-          <Header />
+          
           
 
           {/* {
@@ -94,8 +95,9 @@ class App extends React.Component {
           }
         </nav>
         <main>
-          
+        <div className = "home">
         <Route exact path="/" component={Home} />
+        </div>
           <ProtectedRoute
             exact path="/courses"
             user={user}

@@ -30,10 +30,12 @@ class Dashboard extends React.Component {
       <div>
         <div><Link to="/">Home</Link></div>
         <h1>{user.name && `Hi ${user.name}! Check out the available courses to review!`}</h1>
-        <h2>{list}</h2>
+        <h2 className="list">{list}</h2>
 
         <div>
-          <p>Not seeing your course? Add one below.</p>
+          <div className = "add-course-container">
+          <p className="add-course">Not seeing your course? Add one below.</p>
+          </div>
           <CourseForm />
         </div>
 
