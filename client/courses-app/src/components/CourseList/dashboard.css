@@ -1,9 +1,25 @@
 .list{
-    background-color: #FFF;
-
+    background-color: #f2f2f2;
+    height: 400px;
+    margin: auto 0;
 }
 
 .add-course-container {
     display: flex;
     justify-content: center;
+    background-color: #f2f2f2;
+}
+
+.home-link-container {
+  margin-top: 10px;
+  font-size: 125%;
+  font-style: bold; 
+}
+
+.home-link{
+color: rgba(228, 217, 111, 1);
+}
+
+.greeting{
+    
 }

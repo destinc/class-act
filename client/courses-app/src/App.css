@@ -18,7 +18,15 @@
   color: #61dafb;
 }
 
+.login {
+  margin-top: 20px;
+  font-size: 150%;
+  font-style: bold;
+}
 
+.login-link{
+  color: rgba(228, 217, 111, 1);
+}
 
 button {
   background-color: #FFF;
