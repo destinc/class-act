@@ -12,7 +12,7 @@ const appRouter = require('./routers/appRouter')
 const { authorized } = require('./auth/auth')
 const { Courses, Reviews, User } = require('./database/models')
 
-const PORT = 3001
+const PORT = process.env.port || 3001
 
 const app = express()
 
