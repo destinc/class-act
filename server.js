@@ -3,6 +3,7 @@ const parser = require('body-parser')
 const cors = require('cors')
 const passport = require('passport')
 const logger = require('morgan')
+const path = require('path')
 
 require('dotenv').config()
 
@@ -19,6 +20,8 @@ app.use(logger('dev'))
 app.use(cors())
 app.use(parser.json())
 app.use(express.urlencoded({ extended: false }))
+
+app.use(express.static(path.join(__dirname, './client/build')));
 
 app.use('/auth', authRouter)
 app.use('/app', authorized, appRouter)
@@ -145,23 +148,6 @@ app.post('/courses/:id/reviews', async (req, res) => {
     }
 })
 
-// app.put('/courses/:id/reviews', async (req, res) => {
-//     console.log('hi')
-//     try {
-//         //const findCourses = await Courses.findByPk(req.params.id)
-//         const findReview = await Reviews.findByPk(req.params.id)
-//         const reviewUpdate = await findReview.update(req.body)
-
-//         // await addReview.update(req.body)
-//         res.send(reviewUpdate)
-
-//     }
-//     catch (error) {
-//         console.error(error)
-//         throw error
-//     }
-
-// })
 
 app.delete('/reviews/:id', async (req, res) => {
     try {
@@ -181,24 +167,10 @@ app.delete('/reviews/:id', async (req, res) => {
 
 })
 
-// app.put('/reviews/:id', async (req, res) => { //The front end already knows the previous slug you want, thus you do not need to repeat/nest the courses/:id.
-//     try {
-//         const id = req.params.id
-//         const findReview = await Reviews.update(
-//             {
-//                 review: req.body.review //review is part of your model (database model) req.body.review is the actual field you type in. Think postman request then body selection.
-//             },
-//             {
-//                 where: {
-//                     id: id //this id: id is the review id within the database primary keys. And you need this in order to change the specific review id in the front end.
-//                 }
-//             })
-//         res.send(findReview) //send the data you get back.
-//     } catch (error) {
-//         console.log('edit review backend')
-//         console.error(error)
-//     }
-// })
+
+if (process.env.NODE_ENV == "production") {
+    app.use('*', (req, res) => res.sendFile(path.join(__dirname, './client/build', "index.html")));
+  }
 
 
 app.use((err, req, res, next) => {
