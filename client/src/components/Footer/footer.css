@@ -1,0 +1,12 @@
+.app-footer {
+    height: 100%;
+    z-index: 1;
+    border-top: 3px solid rgb(106, 101, 101);
+   
+}
+
+.authors{
+    font-size: 18px;
+    margin-top: 50px;
+}
+
