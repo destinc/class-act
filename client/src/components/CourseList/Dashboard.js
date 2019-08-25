@@ -16,7 +16,7 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount = async (res, req) => {
-    const resp = await Axios.get('http://localhost:3001/courses/', api)
+    const resp = await Axios.get('https://class-act-p3.herokuapp.com/')
     this.setState({
       courses: resp.data,
     })
