@@ -1,26 +1,9 @@
 const Sequelize = require('sequelize')
 const bcrypt = require('bcrypt')
-
-let db 
-if (process.env.NODE_ENV === 'production') {
-    // If the node environment is production, connect to a remote PSQL database
-    db = new Sequelize(process.env.DATABASE_URL , {
-      dialect: 'postgres'
-    });
-  }
-  else {
-    // Else connect to a local instance of PSQL running on your machine
-    db = new Sequelize({
-      database: 'courses_db', // Name of your local database
-      dialect: 'postgres'
-    });
-  }
-
-
-// const db = new Sequelize({
-//     database: 'courses_db',
-//     dialect: 'postgres'
-// })
+const db = new Sequelize((proces.env.DATABASE_URL, 'postgres://localhost:5432/courses_db'),{
+    database: 'courses_db',
+    dialect: 'postgres'
+})
 
 const Courses = db.define("courses", {
     name: Sequelize.STRING,
