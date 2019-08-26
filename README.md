@@ -1,5 +1,4 @@
-# title 
--Class Act
+# Class Act
 
 **domain**: - insert the domain to your project
 
