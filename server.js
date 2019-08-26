@@ -16,12 +16,13 @@ const PORT = process.env.PORT || 3001
 
 const app = express()
 
+app.use(express.static(path.join(__dirname, './client/build')));
+
 app.use(logger('dev'))
 app.use(cors())
 app.use(parser.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.use(express.static(path.join(__dirname, './client/build')));
 
 app.use('/auth', authRouter)
 app.use('/app', authorized, appRouter)
@@ -167,16 +168,13 @@ app.delete('/reviews/:id', async (req, res) => {
 
 })
 
-
-if (process.env.NODE_ENV == "production") {
-    app.use('*', (req, res) => res.sendFile(path.join(__dirname, './client/build', "index.html")));
-  }
-
-
 app.use((err, req, res, next) => {
     res.status(500).json({ message: err.message })
 })
 
+if (process.env.NODE_ENV == "production") {
+    app.use('*', (req, res) => res.sendFile(path.join(__dirname, './client/build', "index.html")));
+  }
 
 app.listen(PORT, () => console.log('this is working'))
 
