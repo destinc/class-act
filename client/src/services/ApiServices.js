@@ -1,7 +1,7 @@
 import axios from 'axios'
 // import ReviewForm from '../components/ReviewForm';
 // const BASE_URL = 'http://localhost:3001/'
-const BASE_URL = 'https://class-act-p3.herokuapp.com/'
+const BASE_URL = process.env.API_URL || 'https://class-act-p3.herokuapp.com/'
 
 const JWT_TOKEN = localStorage.getItem('token')
 
