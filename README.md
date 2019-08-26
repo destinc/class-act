@@ -45,5 +45,4 @@
     }
     
  ## Image
- ![p3 logo ][p3_logo.png]
-
+# ![](p3_logo.png) p3 logo  
