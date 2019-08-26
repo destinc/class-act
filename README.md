@@ -43,3 +43,7 @@
         await api.put(`/reviews/${id}`, updateReview)//This is the back-end call. Check server.js. This is passing in two items as parameters. You need to send it what specific item(in our case review) you are updating BY THE KEY(review id) with what you are updating WITH. Review.update(KEY and NEW VALUE) 
         // this.setState({updated: true}) //this could be used in a redirect if statement. Check ice-cream lab (component: updateIceCream render()  )
     }
+    
+ ## Image
+ ![p3 logo ][p3_logo.png]
+
