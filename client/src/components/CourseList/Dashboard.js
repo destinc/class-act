@@ -15,7 +15,7 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount = async (res, req) => {
-    const resp = await courseListDashboard
+    const resp = await courseListDashboard()
     this.setState({
       courses: resp.data,
     })

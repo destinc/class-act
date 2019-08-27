@@ -30,7 +30,7 @@ class SingleCourse extends React.Component {
     }
 
     getData = async (res, req) => {
-        const resp = await showCourse
+        const resp = await showCourse(this.props.match.params.id)
         this.setState({
             info: resp,
             review: resp.reviews

@@ -2,7 +2,7 @@ import axios from 'axios'
 // import CourseForm from '../components/CourseList/CourseForm'
 // import ReviewForm from '../components/ReviewForm'
 // const BASE_URL = 'http://localhost:3001/'
-const BASE_URL = process.env.API_URL || 'https://class-act-p3.herokuapp.com/'
+const BASE_URL =process.env.API_URL || 'https://p3-class-act.herokuapp.com'
 
 const JWT_TOKEN = localStorage.getItem('token')
 
@@ -50,9 +50,9 @@ export const newCourse = async (data) => {
   }
 }
 
-export const showCourse = async (data) => {
+export const showCourse = async (id) => {
   try {
-    const response1 = await api.get(`/courses/${this.props.match.params.id}/reviews`, data)
+    const response1 = await api.get(`/courses/${id}/reviews`)
 
     return response1.data
   }
@@ -61,9 +61,9 @@ export const showCourse = async (data) => {
   }
 }
 
-export const courseListDashboard = async (data) => {
+export const courseListDashboard = async () => {
   try {
-    const response3 = await api.get('/')
+    const response3 = await api.get('/courses')
 
     return response3.data
   }
@@ -74,7 +74,7 @@ export const courseListDashboard = async (data) => {
 
 export const courseListMenu = async (data) => {
   try {
-    const response3 = await api.get('/')
+    const response3 = await api.get('/courses')
 
     return response3.data
   }

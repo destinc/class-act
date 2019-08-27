@@ -28,7 +28,7 @@ class CourseForm extends React.Component {
         const { name, instructor, description } = this.state
         let newCourseData = { name, instructor, description }
         // console.log(newCourse)
-        return await newCourse(newCourseData)
+        await newCourse(newCourseData)
     }
 
 
