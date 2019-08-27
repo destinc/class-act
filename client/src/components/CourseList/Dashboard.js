@@ -21,7 +21,6 @@ class Dashboard extends React.Component {
     })
   }
 
-
   render() {
     const { user } = this.props
     const list = this.state.courses.map(course => <Link key={course.id} to={`/courses/${course.id}`}><Layout key={course.id} name={course.name} /></Link>)

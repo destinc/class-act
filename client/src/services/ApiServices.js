@@ -105,6 +105,4 @@ export const deleteReview = async (id) => {
   }
 }
 
-
-
 export default api

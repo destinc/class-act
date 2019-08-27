@@ -3,7 +3,6 @@ import './CourseForm.css'
 // import { Redirect } from 'react-router-dom'
 import { newCourse } from '../../services/ApiServices'
 
-
 class CourseForm extends React.Component {
     constructor(props) {
         super(props)
@@ -24,13 +23,12 @@ class CourseForm extends React.Component {
     }
 
     handleSubmit = async (event) => {
-        // event.preventDefault()
+        event.preventDefault()
         const { name, instructor, description } = this.state
         let newCourseData = { name, instructor, description }
-        // console.log(newCourse)
+        
         await newCourse(newCourseData)
     }
-
 
     render() {
         return (
@@ -46,7 +44,6 @@ class CourseForm extends React.Component {
                             onChange={this.handleChange}>
                         </input>
                     </div>
-                    {/* <div> */}
                         <label>Instructor</label>
                         <input
                             type='text'
@@ -55,7 +52,6 @@ class CourseForm extends React.Component {
                             value={this.instructor}
                             onChange={this.handleChange}>
                         </input>
-                    {/* </div> */}
                     <div>
                         <label>Description</label>
                         <input 
@@ -66,8 +62,7 @@ class CourseForm extends React.Component {
                         onChange={this.handleChange}
                         ></input>
                     </div>
-
-                    <button className="submit-button" type='submit' >Add a Course</button>
+                    <button className="submit-button" type='submit'>Add a Course</button>
 
                 </form>
             </div>

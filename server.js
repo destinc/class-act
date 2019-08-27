@@ -42,32 +42,32 @@ app.get('/', async (req, res) => {
 app.get('/courses', async (req, res) => {
     try {
         const course = await Courses.findAll()
-        res.send(course)
+        res.json(course)
     }
     catch (error) {
         console.error(error)
         throw error
     }
 })
+
+// app.post('/courses', async (req, res) => {
+//     try {
+//         const addCourseToList = await Courses.create(req.body)
+//         // await addCourseToList.setUser(findUser)
+//         res.json(addCourseToList)
+//     }
+//     catch (error) {
+//         console.error(error)
+//         throw error
+//     }
+// })
 
 app.post('/courses', async (req, res) => {
-    try {
-        const addCourseToList = await Courses.create(req.body)
-        // await addCourseToList.setUser(findUser)
-        res.json(addCourseToList)
-    }
-    catch (error) {
-        console.error(error)
-        throw error
-    }
-})
-
-app.post('/courses/:id', async (req, res) => {
     try {
         const findUser = await User.findByPk(req.params.id)
         const addCourse = await Courses.create(req.body)
         await addCourse.setUser(findUser)
-        res.send(addCourse)
+        res.json(addCourse)
     }
     catch (error) {
         console.error(error)
@@ -79,7 +79,7 @@ app.get('/courses/:id', async (req, res) => {
     try {
         const courseId = req.params.id
         const singleCourse = await Courses.findByPk(courseId)
-        res.send(singleCourse)
+        res.json(singleCourse)
     }
     catch (error) {
         console.error(error)
@@ -87,7 +87,6 @@ app.get('/courses/:id', async (req, res) => {
     }
 })
 
-//Show all reviews 
 app.get('/reviews/:id', async (req, res) => {
     try {
         const id = req.params.id
@@ -99,7 +98,6 @@ app.get('/reviews/:id', async (req, res) => {
         throw error
     }
 })
-//Show all reviews 
 
 app.put('/reviews/:id', async (req, res) => { //The front end already knows the previous slug you want, thus you do not need to repeat/nest the courses/:id.
     try {
@@ -113,7 +111,7 @@ app.put('/reviews/:id', async (req, res) => { //The front end already knows the 
                     id: id //this id: id is the review id within the database primary keys. And you need this in order to change the specific review id in the front end.
                 }
             })
-        res.send(findReview) //send the data you get back.
+        res.json(findReview) //send the data you get back.
     } catch (error) {
         console.log('edit review backend')
         console.error(error)
@@ -141,7 +139,7 @@ app.post('/courses/:id/reviews', async (req, res) => {
         await courseReview.setCourse(course)//this was what we were missing
 
 
-        res.send(courseReview)
+        res.json(courseReview)
     }
     catch (error) {
         console.error(error)
