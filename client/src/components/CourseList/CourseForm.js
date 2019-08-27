@@ -2,6 +2,7 @@ import React from 'react'
 import './CourseForm.css'
 // import { Redirect } from 'react-router-dom'
 import { newCourse } from '../../services/ApiServices'
+import { getData }from '../../components/ShowCourse'
 
 class CourseForm extends React.Component {
     constructor(props) {
