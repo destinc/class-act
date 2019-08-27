@@ -2,7 +2,6 @@ import React from 'react'
 import './CourseForm.css'
 // import { Redirect } from 'react-router-dom'
 import { newCourse } from '../../services/ApiServices'
-import { getData }from '../../components/ShowCourse'
 
 class CourseForm extends React.Component {
     constructor(props) {
@@ -28,7 +27,6 @@ class CourseForm extends React.Component {
         const { name, instructor, description } = this.state
         let newCourseData = { name, instructor, description }
         await newCourse(newCourseData)
-        this.props.getData()
     }
 
     render() {
