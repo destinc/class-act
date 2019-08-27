@@ -22,8 +22,8 @@ export const login = async (data) => {
     localStorage.setItem('token', token)
     return user
   }
-  catch(e) {
-    throw e
+  catch(error) {
+    throw error
   }
 }
 
@@ -34,53 +34,77 @@ export const getProfile = async () => {
 
     return user
   }
-  catch(e) {
-    throw e
+  catch(error) {
+    throw error
   }
 }
 
 export const newCourse = async (data) => {
   try {
-    const response2 = await api.post('/courses/', data)
+    const response = await api.post('/courses/', data)
 
-    return response2.data
+    return response.data
   }
-  catch(e) {
-    throw e
+  catch(error) {
+    throw error
   }
 }
 
 export const showCourse = async (id) => {
   try {
-    const response1 = await api.get(`/courses/${id}/reviews`)
+    const response = await api.get(`/courses/${id}/reviews`)
 
-    return response1.data
+    return response.data
   }
-  catch(e) {
-    throw e
+  catch(error) {
+    throw error
   }
 }
 
 export const courseListDashboard = async () => {
   try {
-    const response3 = await api.get('/courses')
+    const response = await api.get('/courses')
 
-    return response3.data
+    return response.data
   }
-  catch(e) {
-    throw e
+  catch(error) {
+    throw error
   }
 }
 
 export const courseListMenu = async (data) => {
   try {
-    const response3 = await api.get('/courses')
+    const response = await api.get('/courses')
 
-    return response3.data
+    return response.data
   }
-  catch(e) {
-    throw e
+  catch(error) {
+    throw error
   }
 }
+
+export const reviewSubmit = async (id, data) => {
+  try {
+    const response = await api.put(`/reviews/${id}`, data)
+
+    return response.data
+  }
+  catch(error) {
+    throw error
+  }
+}
+
+export const deleteReview = async (id) => {
+  try {
+    const response = await api.delete(`/reviews/${id}`)
+    return response.data
+  }
+
+  catch(error) {
+    throw error
+  }
+}
+
+
 
 export default api
