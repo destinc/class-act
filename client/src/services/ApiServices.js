@@ -1,5 +1,6 @@
 import axios from 'axios'
-// import ReviewForm from '../components/ReviewForm';
+// import CourseForm from '../components/CourseList/CourseForm'
+// import ReviewForm from '../components/ReviewForm'
 // const BASE_URL = 'http://localhost:3001/'
 const BASE_URL = process.env.API_URL || 'https://class-act-p3.herokuapp.com/'
 
@@ -32,6 +33,50 @@ export const getProfile = async () => {
     const { user } = response.data
 
     return user
+  }
+  catch(e) {
+    throw e
+  }
+}
+
+export const newCourse = async (data) => {
+  try {
+    const response2 = await api.post('/courses/', data)
+
+    return response2.data
+  }
+  catch(e) {
+    throw e
+  }
+}
+
+export const showCourse = async (data) => {
+  try {
+    const response1 = await api.get(`/courses/${this.props.match.params.id}/reviews`, data)
+
+    return response1.data
+  }
+  catch(e) {
+    throw e
+  }
+}
+
+export const courseListDashboard = async (data) => {
+  try {
+    const response3 = await api.get('/')
+
+    return response3.data
+  }
+  catch(e) {
+    throw e
+  }
+}
+
+export const courseListMenu = async (data) => {
+  try {
+    const response3 = await api.get('/')
+
+    return response3.data
   }
   catch(e) {
     throw e

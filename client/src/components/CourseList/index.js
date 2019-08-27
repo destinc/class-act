@@ -1,8 +1,8 @@
 import React from 'react'
-import Axios from 'axios'
-import { Link, Redirect } from 'react-router-dom'
-import api from '../../services/ApiServices'
+import { Link } from 'react-router-dom'
+import { courseListMenu } from '../../services/ApiServices'
 import Layout from './listlayout'
+
 
 
 class CourseList extends React.Component {
@@ -15,7 +15,7 @@ class CourseList extends React.Component {
     }
 
     componentDidMount = async (res, req) => {
-        const resp = await Axios.get('http://localhost:3001/courses/', api)
+        const resp = await courseListMenu
         console.log(resp)
         this.setState({ 
             courses: resp.data,

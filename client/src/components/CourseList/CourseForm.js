@@ -1,8 +1,8 @@
 import React from 'react'
-import Axios from 'axios'
 import './CourseForm.css'
 // import { Redirect } from 'react-router-dom'
-// import api from '../../services/apiServices'
+import { newCourse } from '../../services/ApiServices'
+
 
 class CourseForm extends React.Component {
     constructor(props) {
@@ -26,9 +26,9 @@ class CourseForm extends React.Component {
     handleSubmit = async (event) => {
         // event.preventDefault()
         const { name, instructor, description } = this.state
-        let newCourse = { name, instructor, description }
+        let newCourseData = { name, instructor, description }
         // console.log(newCourse)
-        return await Axios.post('http://localhost:3001/courses/', newCourse)
+        return await newCourse(newCourseData)
     }
 
 

@@ -1,9 +1,9 @@
 import React from 'react'
-import Axios from 'axios'
-import api from '../../services/ApiServices'
-import Layout from '../CourseList/listlayout'
+import { showCourse } from '../../services/ApiServices'
+// import Layout from '../CourseList/listlayout'
 import ReviewForm from '../ReviewForm'
-import Images from '../Images/class-computer.jpg'
+// import Images from '../Images/class-computer.jpg'
+
 
 import './showcourse.css'
 
@@ -30,26 +30,13 @@ class SingleCourse extends React.Component {
     }
 
     getData = async (res, req) => {
-        const resp = await Axios.get(`http://localhost:3001/courses/${this.props.match.params.id}/reviews`, api)
+        const resp = await showCourse
         this.setState({
-            info: resp.data,
-            review: resp.data.reviews
+            info: resp,
+            review: resp.reviews
         })
         console.log('test')
-
-
     }
-
-
-
-    // ourLoop = async (res, req) => {
-
-    //     const ourMap = this.state.info.reviews.map(wow => {
-    //         return <p>{wow.review}</p>
-    //     })
-    // }
-
-
 
 
     render() {

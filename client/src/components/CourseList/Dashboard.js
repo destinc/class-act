@@ -1,7 +1,6 @@
 import React from 'react'
-import Axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
-import api from '../../services/ApiServices'
+import { courseListDashboard } from '../../services/ApiServices'
 import Layout from './listlayout'
 import './dashboard.css'
 import CourseForm from './CourseForm';
@@ -16,7 +15,7 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount = async (res, req) => {
-    const resp = await Axios.get('https://class-act-p3.herokuapp.com/')
+    const resp = await courseListDashboard
     this.setState({
       courses: resp.data,
     })

@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
+// import Header from './Header'
+// import Footer from './Footer'
 import Images from './Images/class_act_home_image.jpeg'
 import './Home.css'
 
