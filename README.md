@@ -1,6 +1,10 @@
 # Class Act
 
-**domain**: - insert the domain to your project
+**domain**: - https://p3-class-act.herokuapp.com/
+**user**
+bob@gmail.com
+**pw**
+123
 
 ## description and user story 
 -Took a recent course, want to have some anonymity when posting a review?
