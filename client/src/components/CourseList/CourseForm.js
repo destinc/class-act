@@ -26,8 +26,8 @@ class CourseForm extends React.Component {
         event.preventDefault()
         const { name, instructor, description } = this.state
         let newCourseData = { name, instructor, description }
-        
         await newCourse(newCourseData)
+        this.props.getData()
     }
 
     render() {
