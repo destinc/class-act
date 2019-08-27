@@ -67,7 +67,7 @@ app.post('/courses/:id', async (req, res) => {
         const findUser = await User.findByPk(req.params.id)
         const addCourse = await Courses.create(req.body)
         await addCourse.setUser(findUser)
-        res.json(addCourse)
+        res.send(addCourse)
     }
     catch (error) {
         console.error(error)

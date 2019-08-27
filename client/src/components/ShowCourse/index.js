@@ -5,8 +5,6 @@ import ReviewForm from '../ReviewForm'
 // import Images from '../Images/class-computer.jpg'
 import './showcourse.css'
 
-
-
 class SingleCourse extends React.Component {
     constructor(props) {
         super(props)
@@ -33,7 +31,6 @@ class SingleCourse extends React.Component {
     deleteData = async () => {
         const resp = await deleteReview(this.props.match.params.id)
     }
-
 
     render() {
 
