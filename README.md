@@ -7,35 +7,35 @@
 -**pw**
 -123
 
--## description and user story 
+## description and user story 
 -Took a recent course, want to have some anonymity when posting a review?
 
--## technologies & packages
+## technologies & packages
 -React
 -Sequelize
 -express
 
--## launch/build 
+## launch/build 
 -clone and run locally
 -The next iteration will be deployed online.
 
--## major problems & solutions
+## major problems & solutions
 -Properly understanding the movements of properties and data pieces in order to have a fully functional and working CRUD app.
 
--## MVP
+## MVP
 -Adding a course
 -Updating a review
 -Delete a review
 -Read all courses and reviews.
 
--## FUTURE -> databases and relations; APIs; component library
+## FUTURE -> databases and relations; APIs; component library
 -Adding more media
 -Adding more courses
 -Adding more reviews
 -Making logins more secure
 -Make a registration screen
 
--## _code snippet_
+## _code snippet_
 
 -please note the // are the notes for each individual line-
 `
@@ -50,6 +50,6 @@
         // this.setState({updated: true}) //this could be used in a redirect if statement. Check ice-cream lab (component: updateIceCream render()  )
     }`
     
- -## Image
+ ## Image
  ![p3 image](p3_logo.png)
  
