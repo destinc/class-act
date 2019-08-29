@@ -51,5 +51,5 @@
     }`
     
  ## Image
- ![p3 image](p3_logo.png)
+ ![p3 image](/p3_logo.png)
  
