@@ -12,11 +12,14 @@
 
 ## technologies & packages
 -React
+
 -Sequelize
+
 -express
 
 ## launch/build 
 -clone and run locally
+
 -The next iteration will be deployed online.
 
 ## major problems & solutions
@@ -24,20 +27,28 @@
 
 ## MVP
 -Adding a course
+
 -Updating a review
+
 -Delete a review
+
 -Read all courses and reviews.
 
 ## FUTURE -> databases and relations; APIs; component library
 -Adding more media
+
 -Adding more courses
+
 -Adding more reviews
+
 -Making logins more secure
+
 -Make a registration screen
 
 ## _code snippet_
 
 -please note the // are the notes for each individual line-
+
 `
  handleSubmit = async (event) => { //this is a helper function!
         // event.preventDefault() //prevent default normally stops the browser from refreshing. But in this case we needed the refresh to show the new edited reviews.
